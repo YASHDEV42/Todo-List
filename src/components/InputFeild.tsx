@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 interface Props {
   todo: string;
   setTodo: React.Dispatch<React.SetStateAction<string>>;
