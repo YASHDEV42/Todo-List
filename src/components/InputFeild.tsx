@@ -16,11 +16,14 @@ const InputFeild: React.FC<Props> = ({ todo, setTodo, handleAdd }) => {
       <input
         type="input"
         placeholder="Add a task"
-        className=" w-1/3 h-12 p-4 text-lg font-bold"
+        className=" w-2/3 sm:w-1/3 h-12 p-4 text-lg font-bold"
         value={todo}
         onChange={(e) => setTodo(e.target.value)}
       />
-      <button className=" bg-yellow-500 w-28 h-12 font-bold" type="submit">
+      <button
+        className=" bg-yellow-500 sm:w-28 w-14 h-12 font-bold"
+        type="submit"
+      >
         Add
       </button>
     </form>

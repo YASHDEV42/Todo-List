@@ -42,7 +42,7 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
       onSubmit={(e) => handleEdit(e, todo.id)}
       className="w-screen flex flex-col items-center"
     >
-      <div className=" flex flex-row items-center justify-between bg-yellow-500 w-1/3 h-14 px-6 py-6 my-4 font-bold text-lg">
+      <div className=" flex flex-row items-center justify-between bg-yellow-500 w-2/3 sm:w-1/3 h-14 px-6 py-6 my-4 font-bold text-lg">
         {edit ? (
           <>
             <input
