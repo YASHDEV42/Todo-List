@@ -42,10 +42,11 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
       onSubmit={(e) => handleEdit(e, todo.id)}
       className="w-screen flex flex-col items-center"
     >
-      <div className=" flex flex-row items-center justify-between bg-yellow-500 w-2/3 sm:w-1/3 h-14 px-6 py-6 my-4 font-bold text-lg">
+      <div className=" flex flex-row items-center justify-between bg-yellow-500 w-2/3 md:w-1/2 sm:w-1/3 h-14 px-6 py-6 my-4 font-bold text-lg">
         {edit ? (
           <>
             <input
+              className=" w-1/2"
               ref={inputRef}
               type="input"
               value={editTodo}
@@ -54,24 +55,46 @@ const SingleTodo: React.FC<Props> = ({ todo, todos, setTodos }) => {
             <button onSubmit={(e) => handleEdit(e, todo.id)}>Save</button>
           </>
         ) : todo.isDone ? (
-          <s>{todo.todo}</s>
+          <>
+            <s>{todo.todo}</s>
+            <div className="flex flex-row gap-2">
+              <AiFillDelete
+                onClick={() => handleDelete(todo.id)}
+                className=""
+              />
+              <AiFillEdit
+                onClick={() => {
+                  if (!edit && !todo.isDone) {
+                    setEdit(!edit);
+                  } else {
+                    setEdit(!edit);
+                  }
+                }}
+              />
+              <MdDone onClick={() => handleDone(todo.id)} />
+            </div>
+          </>
         ) : (
-          <h3>{todo.todo}</h3>
+          <>
+            <h3>{todo.todo}</h3>
+            <div className="flex flex-row gap-2">
+              <AiFillDelete
+                onClick={() => handleDelete(todo.id)}
+                className=""
+              />
+              <AiFillEdit
+                onClick={() => {
+                  if (!edit && !todo.isDone) {
+                    setEdit(!edit);
+                  } else {
+                    setEdit(!edit);
+                  }
+                }}
+              />
+              <MdDone onClick={() => handleDone(todo.id)} />
+            </div>
+          </>
         )}
-
-        <div className="flex flex-row gap-2">
-          <AiFillDelete onClick={() => handleDelete(todo.id)} className="" />
-          <AiFillEdit
-            onClick={() => {
-              if (!edit && !todo.isDone) {
-                setEdit(!edit);
-              } else {
-                setEdit(!edit);
-              }
-            }}
-          />
-          <MdDone onClick={() => handleDone(todo.id)} />
-        </div>
       </div>
     </form>
   );
