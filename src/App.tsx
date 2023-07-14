@@ -24,7 +24,13 @@ const App: React.FC = () => {
       <br />
       <InputFeild todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
       <br />
-      <TodoList todos={todos} setTodos={setTodos} />
+      {todos.length === 0 ? (
+        <h1 className="font-bold text-yellow-300 uppercase text-lg">
+          There are no tasks!
+        </h1>
+      ) : (
+        <TodoList todos={todos} setTodos={setTodos} />
+      )}
     </div>
   );
 };
